@@ -1,5 +1,7 @@
 {
   "name": "ng-paakat-ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
