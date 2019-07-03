@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+// the scanner!
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     NgxQRCodeModule,
+    ZXingScannerModule,
     RouterModule.forChild([
       {
         path: '',

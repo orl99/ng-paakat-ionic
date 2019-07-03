@@ -8,8 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-// import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+// the scanner!
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +20,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     BrowserModule, 
     IonicModule.forRoot(),
     AppRoutingModule,
-    // NgxQRCodeModule
+ 
   ],
   providers: [
     StatusBar,
