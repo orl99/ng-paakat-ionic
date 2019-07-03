@@ -10,26 +10,31 @@
   <ion-item>
     <ion-input type="text" placeholder="paakat Qr Code data" [(ngModel)]="qrData"></ion-input>
   </ion-item>
+  <ion-grid class="hydrated">
+      <ion-row class="hydrated">
+        <ion-col class="hydrated">
+          <ion-button expand="block" color="primary" class="ion-color ion-color-primary button button-block button-solid ion-activatable ion-focusable hydrated" (click)="createCode(); platformDetection()">
+            <ion-icon slot="start" name="barcode"></ion-icon>
+            Create Code
+          </ion-button>
+        </ion-col>
+        <ion-col class="hydrated">
+          <ion-button expand="block" color="primary" class="ion-color ion-color-primary button button-block button-solid ion-activatable ion-focusable hydrated" (click)="scanCode()">
+              <ion-icon slot="start" name="ios-qr-scanner" md="md-qr-scanner"></ion-icon>
+              Scan Code
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <button ion-button full icon-left (click)="createCode(); platformDetection()">
-    <ion-icon name="barcode"></ion-icon>
-    Create Code
-  </button>
-
-  <button ion-button full icon-left (click)="scanCode()">
-    <ion-icon name="barcode"></ion-icon>
-    Scan Code
-  </button>
-  <!-- <ng-container *ngIf="isWeb"> -->
-    <zxing-scanner [enable]="isWeb" [hidden]="hideCamera" [autofocusEnabled]='true'  #scannerComponent (scanSuccess)="handleQrCodeResult($event)"  [formats]="['AZTEC', 'CODABAR', 'CODE_39', 'CODE_93', 'CODE_128', 'DATA_MATRIX', 'EAN_8', 'EAN_13', 'ITF', 'MAXICODE', 'PDF_417', 'QR_CODE', 'RSS_14', 'RSS_EXPANDED',' UPC_A', 'UPC_E', 'UPC_EAN_EXTENSION']"></zxing-scanner>
-  <!-- </ng-container> -->
+    <zxing-scanner [enable]="isWeb" [hidden]="hideCamera" [autofocusEnabled]='true' #scannerComponent (scanSuccess)="handleQrCodeResult($event)"  [formats]="['AZTEC', 'CODABAR', 'CODE_39', 'CODE_93', 'CODE_128', 'DATA_MATRIX', 'EAN_8', 'EAN_13', 'ITF', 'MAXICODE', 'PDF_417', 'QR_CODE', 'RSS_14', 'RSS_EXPANDED',' UPC_A', 'UPC_E', 'UPC_EAN_EXTENSION']"></zxing-scanner>
   
-  <ng-container *ngIf="hideCamera; else elseTemplate">
-    <p>Hola hay camara</p>
+  <ng-container *ngIf="!hideCamera; else elseTemplate">
+    <p>Activa la Camara o crea un Codigo</p>
     <p>{{qrCodeResults}}</p>
   </ng-container>
   <ng-template #elseTemplate>
-      <p>Hola no camara</p>
+      <p>Al parecer no hay camaras disponibles</p>
   </ng-template>
   
 

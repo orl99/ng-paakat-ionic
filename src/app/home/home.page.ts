@@ -80,9 +80,10 @@ export class HomePage implements OnInit {
 
   handleQrCodeResult(result: string){
     this.qrCodeResults = result;
+    console.log(this.qrCodeResults);
   }
 
-  platformDetection(){
+  platformDetection() {
     console.log(this.ptl.platforms());
   }
 
