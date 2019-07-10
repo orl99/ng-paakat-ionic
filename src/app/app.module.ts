@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 // the scanner!
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     BrowserModule, 
     IonicModule.forRoot(),
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
  
   ],
   providers: [
